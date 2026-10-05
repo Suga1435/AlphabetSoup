@@ -1,3 +1,6 @@
+//Name: Sugapriyan
+//Date:9/29/25
+
 public class Soup {
     //these are instance variables 
     private String letters;
@@ -26,38 +29,55 @@ public class Soup {
     }
 
 //below are the functions you'll be writing.
+//adds a word to the pool of letters 
 
     //adds a word to the pool of letters known as "letters"
     public void add(String word){
+        letters += word;
 
     }
-
-
+    //returns a random charecter using Math.random()
     //Use Math.random() to get a random character from the letters string and return it.
     public char randomLetter(){
-        return 'a';
-    }
+        int index = (int)(Math.random() * letters.length());
+        return letters.charAt(index);
 
+            
+        }
+    
 
+    //returns letters stored in the company 
     //returns the letters currently stored with the company name placed directly in the center of all
     //the letters
     public String companyCentered(){
-        return "";
+        int lettersFirst = letters.length() / 2;
+        return letters.substring(0, lettersFirst) + company + letters.substring(lettersFirst, letters.length());
+    
     }
 
-
+    //Removes the first vowel
     //should remove the first available vowel from letters. If there are no vowels this method has no effect.
     public void removeFirstVowel(){
+        letters = letters.replaceFirst("[aeiouAeiou]", "");
+     
         
     }
 
     //should remove "num" letters from a random spot in the string letters. You may assume num never exceeds the length of the string.
     public void removeSome(int num){
+        //find a random spot in "letters" such that it's at most "num" away from the end of the word
+
+        int index = (int)(Math.random()*(letters.length()-num));
+        //use substring to create two halves of the original "letters" without "num" characters taken from the center
+        letters = letters.substring(0, Math.random()+ letters.substring(Math.random() + num);
 
     }
-
+    //removes the word "word" from the string 
     //should remove the word "word" from the string letters. If the word is not found in letters then it does nothing.
     public void removeWord(String word){
+        letters = letters.replace(word, "");
+
+
         
     }
 }
